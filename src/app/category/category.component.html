@@ -1,0 +1,9 @@
+<nav *ngFor = "let category of categories" class="navbar bg-body-tertiary mt-0">
+    <div class="container-fluid bg-light">
+        <a class="navbar-brand text-dark" href="#">{{ category.name }}</a>
+        <span class="badge bg-danger rounded-pill text-white">
+            {{ category.productNumber }}
+        </span>
+    </div>
+</nav>
+    
