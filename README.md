@@ -5,4 +5,4 @@ npm intsall
 ng serve
 
 
-# à noter qu'il vous faut aussi cloner le depot boutique_symfony pour la partie back end pour que tout marche bien
+# à noter qu'il vous faut aussi cloner le depot boutique_symfony5 pour la partie back end pour que tout marche bien
