@@ -1,6 +1,10 @@
+import { Picture } from './picture';
+
 export interface Product {
+  id: number;
   title: string;
-  price: string;
+  price: number;
   slug: string;
-  images: string[];
+  description: string;
+  images: Picture[];
 }

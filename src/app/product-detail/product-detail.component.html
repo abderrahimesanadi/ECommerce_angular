@@ -1,0 +1,35 @@
+<div *ngIf="product" class="productdetail">
+<div class="row">
+<div class="col-md-6">
+	<div >
+		<img width = "100%" src="{{albums[0].src}}"  />
+	</div>
+	<div class="imgcontainer">
+	<div class="gallery" *ngFor="let image of albums; let i=index">
+	  <img src="{{image.thumb}}" (click)="open(i)" />
+	</div>
+  </div>
+</div>
+<div class="col-md-6">
+	<h2>{{product.title}}</h2>
+	<h2 class="text-success p-1 align-center mt-2" >{{ product.price }}
+		Dhs
+	</h2>
+	<button (click)="addToPanier(product.id)" class="btn btn-success float-right">
+		<i class="bi bi-cart-fill"></i>
+		Ajouter au panier
+	</button>
+</div>
+</div>
+<div class="row mt-5">
+	<div class="card text-black mb-3">
+		<div class="card-header">Détails et caractéristiques</div>
+		<div class="card-body">
+		  <h4 class="card-title">Description</h4>
+		  <p class="card-text">{{product.description}}.</p>
+		</div>
+	  </div>
+	  
+	
+</div>
+</div>
