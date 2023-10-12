@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Product } from './product';
 import { Category } from './category';
 import { Panier } from './panier';
+import { User } from './user';
 
 
 @Injectable({
@@ -25,6 +26,29 @@ export class ProductService {
   constructor(
     private http: HttpClient
   ) { }
+
+
+  registerTo(username: string, password: string, firstName: string, lastName: string): Observable<User> {
+    return this.http.post<User>(this.productsUrl + "/register", { "email": username, "password": password, "firstName": firstName, "lastName": lastName }, this.httpOptions).pipe(
+      tap((usr: User) => console.log(`loginTo=${usr.token}`)),
+      catchError(this.handleError<User>('User'))
+    );
+  }
+
+  loginTo(username: string, password: string,): Observable<User> {
+    return this.http.post<User>(this.productsUrl + "/login", { "username": username, "password": password }, this.httpOptions).pipe(
+      tap((usr: User) => console.log(`loginTo=${usr.token}`)),
+      catchError(this.handleError<User>('User'))
+    );
+  }
+
+  getTheme(): Observable<any> {
+    return this.http.get<any>(this.productsUrl + "/theme/sanadi")
+      .pipe(
+        tap(_ => console.log('getTheme')),
+        catchError(this.handleError('getTheme', []))
+      );
+  }
 
   /** GET products from the server */
   getProducts(): Observable<Product[]> {

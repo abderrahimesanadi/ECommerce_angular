@@ -11,9 +11,9 @@ import { Router } from "@angular/router"
 })
 export class PanierComponent {
 
-  panier: Panier[] = [];
+  panier: any[] = [];
   total: number = 0;
-  productsUrl = 'http://localhost:8080/';  // URL to web api
+  productsUrl = 'http://localhost:8080/';
 
   constructor(
     private route: ActivatedRoute,
@@ -23,19 +23,22 @@ export class PanierComponent {
 
   ngOnInit(): void {
     this.showPanier(this.route.snapshot.paramMap.get('id'));
-
   }
 
   showPanier(id: string | null): void {
     this.productService.addToPanier(id)
       .subscribe((panier) => {
-        this.panier = panier;
-
-        //this.total = total;
-        console.log(this.panier);
+        console.log("this.panier");
+        localStorage.setItem("panier", panier);
+        this.panier = localStorage.getItem("panier") as any;
+        console.log(localStorage.getItem("panier"));
+        for (var i = 0; i < this.panier.length; i++) {
+          this.total = this.total + (this.panier[i].pr.price * this.panier[i].quantity);
+        }
 
       });
   }
+
   removeFromPanier(id: number): void {
     this.productService.removeFromPanier(id)
       .subscribe((panier) => {
@@ -43,6 +46,10 @@ export class PanierComponent {
         //this.total = total;
         console.log(this.panier);
       });
+  }
+
+  orderPanier() {
+    this.router.navigate(['/order']);
   }
 
 }

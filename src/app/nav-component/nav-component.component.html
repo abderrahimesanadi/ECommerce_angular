@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/">Boutique SANADI</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -11,29 +11,28 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Categories</a>
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Categories</a>
                 <div  class="dropdown-menu" data-bs-popper="static">
                   <a *ngFor = "let category of categories" class="dropdown-item" href="#">{{ category.name }}</a>
                 </div>
               </li>
         </ul>
-        <ul class="navbar-nav mr-5">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item" id="search">
                 <div class="input-group ">
                     <input type="text" class="form-control" placeholder="qu'est ce vous cherchez?" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-primary" type="button" id="button-addon2">Chercher</button>
+                    <button class="btn btn-secondary" type="button" id="button-addon2">Chercher</button>
                 </div>
             </li>
         </ul>
-        <ul  class="navbar-nav ml-5 ">
-            <li class="nav-item ">
-                <a class="btn btn-outline-success bg-white ml-2 rounded text-dark" href="#">
+        <ul  class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="btn btn-outline-success bg-white ml-2 rounded text-dark" routerLink="login" >
                     <i class="bi bi-person-check-fill"></i>
-
                     Connexion</a>
             </li>
             <li class="nav-item ">
-                <a href="#" class="btn btn-outline-success bg-white ml-2 rounded text-dark">
+                <a routerLink="register" class="btn btn-outline-success bg-white ml-2 rounded text-dark">
                     <i class="bi bi-person-fill-add"></i>
                     Inscription</a>
             </li>

@@ -1,0 +1,23 @@
+<div class="container mt-2 border border-success bg-light rounded p-2 clearfix" id="login">
+		<div class="bg-light p-3">
+			<h3 class="text-center">Identifiez-vous pour accèder à votre espace
+			</h3>
+		</div>
+		<div *ngIf= "error"class="bg-danger"></div>
+        <div class="container-fluid m-3 p-4">
+		<form action="#" method="post">
+			<label for="username">Email:</label>
+			<input type="text"  [(ngModel)]="username" id="username" name="username" class="form-control" placeholder="Email" />
+			<label for="password">Mot de pass:</label>
+			<input type="password" [(ngModel)]="password" id="password" name="user.password" class="form-control" placeholder="Mot de pass"/>
+
+			<button (click)="loginTo(username,password)" class="btn btn-secondary mt-3">Connexion</button>
+
+			<div class="text-primary mt-2">
+				<a href="#">
+					Vous avez pas un compte ? Créer le</a>
+			</div>
+		</form>
+	</div>
+
+    </div>

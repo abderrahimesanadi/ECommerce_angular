@@ -5,6 +5,8 @@ import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { Router } from "@angular/router"
 import { Panier } from '../panier';
+import { NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdRatingConfig } from '../rating-config';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,6 +18,8 @@ export class ProductDetailComponent {
   albums: any = [];
   product: Product | undefined;
   panier: Panier[] | undefined;
+  imagesUrl = 'http://localhost:8080/';
+
 
   constructor(
     private _lightbox: Lightbox,
@@ -32,10 +36,10 @@ export class ProductDetailComponent {
     this.productService.getProduct(slug)
       .subscribe((product) => {
         this.product = product;
-        for (let i = 1; i <= 4; i++) {
-          const src = './assets/images/image' + i + '.jpg';
-          const caption = 'Image ' + i + ' caption';
-          const thumb = './assets/images/thumbs/image' + i + '.jpg';
+        for (let image of product.images) {
+          const src = this.imagesUrl + image.path;
+          const caption = image.path + ' caption';
+          const thumb = src;
           const album = {
             src: src,
             caption: caption,

@@ -1,0 +1,42 @@
+<div class="container mt-5 border border-success bg-light rounded p-2 clearfix" id="register">
+	<div class="bg-light p-3">
+		<h3 class="text-center">Inscrivez-vous pour compléter votre commande
+		</h3>
+	</div>
+	<div class="row">
+		<div class="col-6">
+			<label for="firstName">Prénom:</label>
+			<input type="text"  [(ngModel)]="firstName" id="firstName" name="firstName" class="form-control" placeholder="Votre Prénom" />
+		</div>
+		<div class="col-6">
+			<label for="lastName">Nom:</label>
+			<input type="text"  [(ngModel)]="lastName" id="lastName" name="lastName" class="form-control" placeholder="Votre Nom" />
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-6">
+        <label for="email">Email:</label>
+	<input type="text"  [(ngModel)]="email" id="email" name="email" class="form-control" placeholder="Email" />
+    </div>
+		<div class="col-6">
+        <label for="password">Mot de pass:</label>
+	<input type="password" [(ngModel)]="password" id="password" name="user.password" class="form-control" placeholder="Mot de pass"/>
+    </div>
+    </div>
+    <div class="row">
+        <label >Adresse de livraison :</label>
+    </div>
+    <div class="row m-0">
+        <textarea name="adresse" [(ngModel)]="adresse" id="adresse" class="form-control"cols="20" rows="4"></textarea>
+    </div>
+		<div class="form-check">
+			<input class="form-check-input" name="registration_form[agreeTerms]" type="checkbox" value="" id="registration_form_agreeTerms" required="required">
+			<label class="form-check-label" for="registration_form_agreeTerms">J' accept les
+				<a href="/conditions-d-utilisation">terms et conditions d\'utilisation</a>
+			</label>
+			<div class="invalid-feedback">You must agree before submitting.</div>
+		</div>
+		<button (click)="validateOrder(firstName,lastName,email,password,adresse)" class="btn btn-success mt-2">Valider la commande</button>
+		<div class="text-primary mt-2">
+			<a routerLink="login" >Vous avez un compte ? Connectez-vous</a>
+		</div>

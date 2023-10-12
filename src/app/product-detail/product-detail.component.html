@@ -1,10 +1,10 @@
 <div *ngIf="product" class="productdetail">
 <div class="row">
 <div class="col-md-6">
-	<div >
+	<div class="border border-secondary bg-light rounded">
 		<img width = "100%" src="{{albums[0].src}}"  />
 	</div>
-	<div class="imgcontainer">
+	<div class="imgcontainer border border-secondary bg-light rounded">
 	<div class="gallery" *ngFor="let image of albums; let i=index">
 	  <img src="{{image.thumb}}" (click)="open(i)" />
 	</div>
@@ -15,6 +15,7 @@
 	<h2 class="text-success p-1 align-center mt-2" >{{ product.price }}
 		Dhs
 	</h2>
+	<ngb-rating  [rate]="4" [max] = "5"></ngb-rating>
 	<button (click)="addToPanier(product.id)" class="btn btn-success float-right">
 		<i class="bi bi-cart-fill"></i>
 		Ajouter au panier
@@ -25,7 +26,7 @@
 	<div class="card text-black mb-3">
 		<div class="card-header">Détails et caractéristiques</div>
 		<div class="card-body">
-		  <h4 class="card-title">Description</h4>
+		  <h4 class="card-title">Description : </h4>
 		  <p class="card-text">{{product.description}}.</p>
 		</div>
 	  </div>
