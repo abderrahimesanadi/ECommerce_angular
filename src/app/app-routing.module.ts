@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'panier/:id', component: PanierComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'order', component: OrderComponent }
+  { path: 'order/:id', component: OrderComponent }
 
 ];
 

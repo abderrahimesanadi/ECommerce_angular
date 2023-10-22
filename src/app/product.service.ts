@@ -17,7 +17,7 @@ import { User } from './user';
 })
 export class ProductService {
 
-  private productsUrl = 'http://localhost:8080/api';  // URL to web api
+  private productsUrl = 'http://vmi1486884.contaboserver.net/api';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

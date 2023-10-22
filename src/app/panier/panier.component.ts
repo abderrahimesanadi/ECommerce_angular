@@ -29,9 +29,9 @@ export class PanierComponent {
     this.productService.addToPanier(id)
       .subscribe((panier) => {
         console.log("this.panier");
-        localStorage.setItem("panier", panier);
-        this.panier = localStorage.getItem("panier") as any;
-        console.log(localStorage.getItem("panier"));
+        //this.panier.push(JSON.stringify(panier));
+        //localStorage.setItem("panier", JSON.stringify(this.panier));
+        this.panier = panier;
         for (var i = 0; i < this.panier.length; i++) {
           this.total = this.total + (this.panier[i].pr.price * this.panier[i].quantity);
         }
@@ -48,8 +48,8 @@ export class PanierComponent {
       });
   }
 
-  orderPanier() {
-    this.router.navigate(['/order']);
+  orderPanier(id: string): void {
+    this.router.navigate(['/order/' + id]);
   }
 
 }

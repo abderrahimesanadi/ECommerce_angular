@@ -23,14 +23,14 @@
                 <td><button type="button" (click) = "removeFromPanier(p.pr.id)" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button></td>
             </tr>
             <tr>
-                <td colspan="4"> </td>
+                <td colspan="4"><input type="hidden" [(ngModel)]="panier[0].pr.id"/></td>
                 <td  class="text-right text-primary font-weight-bold">Total : </td>
                 <td> <span id="total" class="text-primary font-weight-bold">{{ total }} Dhs</span> </td>        
             </tr>
             <tr>
-                <td colspan="2"> </td>
+                <td colspan="2"> {{panier[0].pr.id}}</td>
                 <td colspan="2"> <a class="btn btn-primary" [routerLink]="['/products']"><i class="bi bi-bag-plus-fill"></i><span class="pl-2">Ajouter d'autre produit</span></a></td>
-                <td colspan="2"> <button (click)="orderPanier()" class="btn btn-info"><i class="bi bi-receipt"></i><span class="pl-2">Commander</span></button></td>
+                <td colspan="2"> <button (click)="orderPanier(panier[0].pr.id)" class="btn btn-info"><i class="bi bi-receipt"></i><span class="pl-2">Commander</span></button></td>
             </tr>
      </tbody>
     </table>
